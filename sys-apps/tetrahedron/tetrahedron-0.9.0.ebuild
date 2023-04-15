@@ -3,40 +3,6 @@
 
 EAPI=8
 
-#CRATES="
-#clap-4.1.11
-#clap_derive-4.1.9
-#clap_lex-0.3.0
-#bitflags-2.1.0
-#bitflags-1.2.1
-#is-terminal-0.4.7
-#once_cell-1.17.1
-#strsim-0.10.0
-#termcolor-1.2.0
-#heck-0.4.1
-#proc-macro-error-1.0.4
-#proc-macro2-1.0.56
-#quote-1.0.26
-#syn-1.0.74
-#os_str_bytes-6.5.0
-#io-lifetimes-1.0.1
-#io-lifetimes-1.0.10
-#rustix-0.37.11
-#hermit-abi-0.3.1
-#windows-sys-0.48.0
-#windows-sys-0.42.0
-#winapi-util-0.1.5
-#proc-macro-error-attr-1.0.4
-#version_check-0.9.4
-#unicode-ident-1.0.8
-#unicode-xid-0.2.4
-#libc-0.2.141
-#linux-raw-sys-0.3.1
-#errno-0.3.1
-#windows-targets-0.48.0
-#winapi-0.3.9
-#"
-
 CRATES="
 anstream-0.2.6
 anstyle-0.3.5
@@ -101,7 +67,7 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE=""
 
-DEPEND=""
+DEPEND=">=dev-lang/rust-bin-1.66.1-r1"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
