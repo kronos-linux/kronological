@@ -53,14 +53,14 @@ windows_x86_64_msvc-0.48.0
 "
 
 declare -A GIT_CRATES=(
-        [noshell]="https://git.temp.hyprlab.net/Kaa/noshell"
+        [noshell]="https://git.temp.hyprlab.net/Kaa/noshell/archive/v0.9.2.tar.gz"
 )
 
 DESCRIPTION="Initramfs builder for KronOS"
 HOMEPAGE="https://git.temp.hyprlab.net/KRONOS/tetrahedron"
 
 inherit cargo
-SRC_URI="$(cargo_crate_uris) https://git.temp.hyprlab.net/KRONOS/tetrahedron/archive/v0.9.1.tar.gz https://git.temp.hyprlab.net/Kaa/noshell/archive/v0.9.2.tar.gz"
+SRC_URI="$(cargo_crate_uris) https://git.temp.hyprlab.net/KRONOS/tetrahedron/archive/v0.9.1.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -75,6 +75,6 @@ S="${WORKDIR}/${PN}"
 
 cargo_src_compile () {
 	ln -sf "${WORKDIR}/noshell" "${WORKDIR}/noshell-"
-	#sed -i -e "s|noshell = .*|noshell = { path = \"${WORKDIR}/noshell\" }|g" Cargo.toml
+	sed -i -e "s|noshell = .*|noshell = { path = \"${WORKDIR}/noshell\" }|g" Cargo.toml
 	cargo build --release || die "Cargo build release failed"
 }
