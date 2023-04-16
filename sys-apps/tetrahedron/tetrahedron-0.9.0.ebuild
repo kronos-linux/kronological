@@ -60,7 +60,7 @@ DESCRIPTION="Initramfs builder for KronOS"
 HOMEPAGE="https://git.temp.hyprlab.net/KRONOS/tetrahedron"
 
 inherit cargo
-SRC_URI="$(cargo_crate_uris) https://git.temp.hyprlab.net/KRONOS/tetrahedron/archive/v0.9.1.tar.gz"
+SRC_URI="$(cargo_crate_uris) https://git.temp.hyprlab.net/KRONOS/tetrahedron/archive/v0.9.4.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
