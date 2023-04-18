@@ -5,7 +5,7 @@ EAPI=8
 
 DESCRIPTION="Initramfs init script for Kronos"
 HOMEPAGE="https://git.temp.hyprlab.net/KRONOS/ouroboros"
-SRC_URI="https://git.temp.hyprlab.net/KRONOS/${PN}/archive/v0.9.0.tar.gz"
+SRC_URI="https://git.temp.hyprlab.net/KRONOS/${PN}/archive/v0.9.5.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
