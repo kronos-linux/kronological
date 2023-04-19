@@ -67,7 +67,7 @@ SLOT="0"
 KEYWORDS="amd64"
 IUSE=""
 
-DEPEND=">=dev-lang/rust-bin-1.66.1-r1"
+DEPEND=">=virtual/rust-1.66.1"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
