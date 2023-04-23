@@ -53,14 +53,14 @@ windows_x86_64_msvc-0.48.0
 "
 
 declare -A GIT_CRATES=(
-        [noshell]="https://git.temp.hyprlab.net/Kaa/noshell/archive/v0.9.2.tar.gz"
+        [noshell]="https://github.com/kronos-linux/noshell/archive/refs/tags/v0.9.2"
 )
 
 DESCRIPTION="Initramfs builder for KronOS"
-HOMEPAGE="https://git.temp.hyprlab.net/KRONOS/tetrahedron"
+HOMEPAGE=""
 
 inherit cargo
-SRC_URI="$(cargo_crate_uris) https://git.temp.hyprlab.net/KRONOS/tetrahedron/archive/v0.9.4.tar.gz"
+SRC_URI="$(cargo_crate_uris) https://github.com/kronos-linux/${PN}/archive/refs/tags/v0.9.0.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -71,10 +71,15 @@ DEPEND=">=virtual/rust-1.66.1"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-S="${WORKDIR}/${PN}"
-
 cargo_src_compile () {
-	ln -sf "${WORKDIR}/noshell" "${WORKDIR}/noshell-"
+	ln -sf "${WORKDIR}/noshell-0.9.2" "${WORKDIR}/noshell-"
+	ln -sf "${WORKDIR}/noshell-0.9.2" "${WORKDIR}/noshell"
 	sed -i -e "s|noshell = .*|noshell = { path = \"${WORKDIR}/noshell\" }|g" Cargo.toml
 	cargo build --release || die "Cargo build release failed"
+}
+
+cargo_src_install() {
+	cargo install --path "${WORKDIR}/${P}" --root "${T}" || die "Cargo install failed"
+	mkdir -p "${D}/sbin" || die
+	cp "${T}/bin/${PN}" "${D}/sbin/${PN}" || die "Failed to move binary"
 }
